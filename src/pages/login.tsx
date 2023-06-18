@@ -10,6 +10,7 @@ import { toasterProperties } from "@/types";
 import { BeatLoader } from "react-spinners";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import useDidMountEffect from "@/lib/hooks";
 
 export default function Login() {
 
@@ -17,10 +18,19 @@ export default function Login() {
     const{data : session} = useSession();
     const router = useRouter();
 
-    if(session){
+    useEffect(() => {
+      if(session){
         toast.info('You already logged in!', toasterProperties);
         router.replace("/");
-    }
+      }  
+    }, []);
+
+    useDidMountEffect(() => {
+      if (session) {
+        router.replace("/");
+        toast.success("You logged in!", toasterProperties);
+      }
+    }, [session]);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const email = useRef<HTMLInputElement>(null);
@@ -29,17 +39,17 @@ export default function Login() {
 
     const loginWithGoogle = async () => {
       setIsLoading(true);
-      await signIn("google", {
-        redirect : false,
-        callbackUrl: '/',
-      }).then(res => {
-          router.replace("/");
-          toast.success("You logged in!", toasterProperties);
-      }).catch(err => {
-        console.log(err)
+      try{
+        await signIn("google", {
+          redirect : false,
+        });
+      }
+      catch(e){
         toast.error("Something went wrong!", toasterProperties);
-      })
-      setIsLoading(false);
+      }
+      finally{
+        setIsLoading(false);
+      }
     }
 
     const handleSubmit = async (e : FormEvent) => {
@@ -53,7 +63,6 @@ export default function Login() {
       }).then(res => {
         if (res?.status == 200){
           router.replace("/");
-          toast.success("You logged in!", toasterProperties);
         }
         else if (res?.status == 401) {
           toast.error("Invalid credentials! Try again.", toasterProperties);

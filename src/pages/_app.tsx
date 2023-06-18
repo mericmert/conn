@@ -6,6 +6,7 @@ import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -53,6 +54,20 @@ export default function App({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
     </Layout>
   </SessionProvider>
+  <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
   </>
   )
 }

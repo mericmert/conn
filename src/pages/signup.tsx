@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
 import { toasterProperties } from "@/types";
 import { signIn, useSession } from "next-auth/react";
+import useDidMountEffect from "@/lib/hooks";
 
 const emailValidationRegExp : RegExp = /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/;
 
@@ -19,11 +20,19 @@ export default function Signup() {
     const {data : session} = useSession();
     const router = useRouter();
     
-    if(session){
-      toast.info('You already logged in!', toasterProperties);
-      router.replace("/");
-    }
+    useEffect(() => {
+      if(session){
+        toast.info('You already logged in!', toasterProperties);
+        router.replace("/");
+      }  
+    }, []);
 
+    useDidMountEffect(() => {
+      if (session) {
+        router.replace("/");
+        toast.success("You logged in!", toasterProperties);
+      }      
+    }, [session]);
     const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [signUpForm, setSignUpForm] = useState({
       full_name : "",
@@ -40,17 +49,18 @@ export default function Signup() {
 
     const signUpWithGoogle = async () => {
       setIsLoading(true);
-      await signIn("google", {
-        redirect : false,
-        callbackUrl: '/',
-      }).then(res => {
-          router.replace("/");
-          toast.success("You logged in!", toasterProperties);
-      }).catch(err => {
-        console.log(err)
+      try{
+        await signIn("google", {
+          redirect : false,
+        })
+      }
+      catch(e){
+        console.log(e)
         toast.error("Something went wrong!", toasterProperties);
-      })
-      setIsLoading(false);
+      }
+      finally{
+        setIsLoading(false);
+      }
     }
 
     const handleSubmit = useCallback(

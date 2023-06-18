@@ -4,6 +4,9 @@ import GoogleProvider from 'next-auth/providers/google';
 import User from '@/models/user';
 import {compare} from 'bcrypt';
 import { connectToMongoDB } from '@/lib/mongodb';
+import { signIn, signOut } from 'next-auth/react';
+import { toast } from 'react-toastify';
+import { toasterProperties } from '@/types';
 
 export default NextAuth({
   providers: [
@@ -46,7 +49,12 @@ export default NextAuth({
       },
     }),
   ],
-
+  events : {
+    async signOut(message){
+      console.log("Signing out!");
+      toast.success("You succesfully logged out!",toasterProperties);
+    }
+  },
   secret: process.env.JWT_SECRET,
   session: {
     strategy: 'jwt',
