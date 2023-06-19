@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { BeatLoader } from 'react-spinners';
 import { ToastContainer } from 'react-toastify';
+import "@/styles/text.css";
 
 
 

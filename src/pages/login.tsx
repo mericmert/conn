@@ -102,7 +102,9 @@ export default function Login() {
                 height={36}
                 />
               </div>
-              {isLoading ? <BeatLoader color="#FFFFFF" size={8} /> : "Log in with Google"}
+              <div className={`w-full h-full flex items-center ${isLoading ? "pl-16" : ""}`}>
+                {isLoading ? <BeatLoader color="#FFFFFF" size={8} /> : "Log in with Google"}
+              </div>
             </button>
             <h1 className="mb-3">or</h1>
             <form onSubmit={handleSubmit}>

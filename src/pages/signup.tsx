@@ -33,6 +33,7 @@ export default function Signup() {
         toast.success("You logged in!", toasterProperties);
       }      
     }, [session]);
+    
     const [isLoading, setIsLoading] = useState<Boolean>(false);
     const [signUpForm, setSignUpForm] = useState({
       full_name : "",
@@ -134,7 +135,7 @@ export default function Signup() {
           </nav>
           <div className="loginBox w-full flex flex-col items-center py-10">
             <div className="text-2xl mb-5 ">Create your account</div>
-            <button onClick={() => signUpWithGoogle()} className="w-72 h-12 rounded-lg bg-[#2DA7FB] text-white flex items-center gap-x-10 mb-3">
+            <button onClick={() => signUpWithGoogle()} className="w-72 h-12 rounded-lg bg-[#2DA7FB] text-white flex items-center mb-3">
               <div className="w-12 h-full rounded-tl-lg rounded-bl-lg bg-white flex items-center justify-center">
                 <Image 
                 src="/google-icon.png"
@@ -143,7 +144,9 @@ export default function Signup() {
                 height={36}
                 />
               </div>
-              {isLoading ? <BeatLoader color="#FFFFFF" size={8} /> : "Sign up with Google"}
+              <div className={`w-full h-full flex items-center ${isLoading ? " pl-24 " : " pl-10 "}`}>
+                {isLoading ? <BeatLoader color="#FFFFFF" size={8} /> : "Sign up with Google"}
+              </div>
             </button>
             <h1 className="mb-3">or</h1>
             <form onSubmit={handleSubmit}>
