@@ -56,7 +56,7 @@ export default function Home() {
         </div>
       </nav>
       <div className='hero w-full'>
-        <div className='px-[20vh] min-h-[88vh] flex flex-col justify-center items-center md:items-start md:flex-row'>
+        <div className='min-h-[645px] px-[20vh] flex flex-col justify-center items-center md:items-start md:flex-row'>
           <Image
                 src="/illustration.png"
                 alt="company logo"
@@ -83,7 +83,7 @@ export default function Home() {
         <div className='h-[300px] bg-blue-600 px-6 mt-6'>
           <div className='relative flex flex-col gap-y-6 items-center h-full w-full py-16'>
             <h1 className='text-white text-5xl font-bold'>Share Your Notes</h1>
-            <span className='text-white text-lg text-center'>"Earn credits to unlock exciting opportunities for further exploration."</span>
+            <span className='text-white text-lg text-center'>&#34;Earn credits to unlock exciting opportunities for further exploration.&#34;</span>
             <div className='absolute flex justify-center items-center left-[10vw] rounded-[10px] top-64 xl:top-48 w-[380px] h-[213px] bg-white rotate-[10deg] xl:rotate-[40deg]'>
               <Image
               src="/profile-picture.png"
@@ -115,7 +115,7 @@ export default function Home() {
         <div className='bg-[#FEFDFD] px-6 mt-64 lg:mt-48 w-full  flex flex-col items-center gap-y-6'>
           <h1 className='text-5xl font-bold'>Create your team</h1>
           <div className='max-w-[600px] text-center'>
-            <span>"Build your perfect team and collaborate effortlessly. Our platform matches you with like-minded individuals based on your preferences, enabling you to work together smoothly and achieve remarkable outcomes."</span>
+            <span>&#34;Build your perfect team and collaborate effortlessly. Our platform matches you with like-minded individuals based on your preferences, enabling you to work together smoothly and achieve remarkable outcomes.&#34;</span>
           </div>
           <div className='mt-8 w-full flex justify-evenly flex-wrap gap-y-6'>
             <div className='h-72 bg-white w-72 shadow-xl'></div>

@@ -19,4 +19,5 @@
 body {
   color: rgb(var(--foreground-rgb));
   background-color:#FEFDFD;
+  scroll-behavior:smooth;
 }
