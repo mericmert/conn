@@ -84,7 +84,7 @@ export default function Home() {
           <div className='relative flex flex-col gap-y-6 items-center h-full w-full py-16'>
             <h1 className='text-white text-5xl font-bold'>Share Your Notes</h1>
             <span className='text-white text-lg text-center'>"Earn credits to unlock exciting opportunities for further exploration."</span>
-            <div className='absolute flex justify-center items-center left-[6vw] rounded-[10px] top-64 lg:top-48 w-[360px] h-48 bg-white rotate-[10deg] lg:rotate-[40deg]'>
+            <div className='absolute flex justify-center items-center left-[10vw] rounded-[10px] top-64 xl:top-48 w-[380px] h-[213px] bg-white rotate-[10deg] xl:rotate-[40deg]'>
               <Image
               src="/profile-picture.png"
               alt="logo"
@@ -92,7 +92,7 @@ export default function Home() {
               style={{borderRadius : "10px"}}
               />
             </div>
-            <div className='absolute flex justify-center items-center left-[6vw] rounded-[10px] top-64 lg:top-48 w-[360px] h-48 bg-white rotate-[0deg] lg:rotate-[30deg]'>
+            <div className='absolute flex justify-center items-center left-[10vw] rounded-[10px] top-64 xl:top-48 w-[380px] h-[213px] bg-white rotate-[0deg] xl:rotate-[30deg]'>
               <Image
               src="/profile-picture.png"
               alt="logo"
@@ -100,7 +100,7 @@ export default function Home() {
               style={{borderRadius : "10px"}}
               />
             </div>
-            <div className='absolute flex justify-center items-center left-[6vw] rounded-[10px] top-64 lg:top-48 w-[360px] h-48 bg-white rotate-[-10deg] lg:rotate-[20deg]'>
+            <div className='absolute flex justify-center items-center left-[10vw] rounded-[10px] top-64 xl:top-48 w-[380px] h-[213px] bg-white rotate-[-10deg] xl:rotate-[20deg]'>
               <Image
               src="/profile-picture.png"
               alt="logo"
@@ -112,20 +112,41 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className='bg-[#FEFDFD] px-6 mt-48 w-full h-[100vh] flex flex-col items-center gap-y-6'>
+        <div className='bg-[#FEFDFD] px-6 mt-64 lg:mt-48 w-full  flex flex-col items-center gap-y-6'>
           <h1 className='text-5xl font-bold'>Create your team</h1>
           <div className='max-w-[600px] text-center'>
             <span>"Build your perfect team and collaborate effortlessly. Our platform matches you with like-minded individuals based on your preferences, enabling you to work together smoothly and achieve remarkable outcomes."</span>
           </div>
-          <div className='mt-8 w-full h-72 flex justify-evenly flex-wrap gap-y-6'>
-            <div className='h-full bg-white w-72 shadow-xl'></div>
-            <div className='h-full bg-white w-72 shadow-xl'></div>
-            <div className='h-full bg-white w-72 shadow-xl'></div>
-            <div className='h-full bg-white w-72 shadow-xl'></div>
+          <div className='mt-8 w-full flex justify-evenly flex-wrap gap-y-6'>
+            <div className='h-72 bg-white w-72 shadow-xl'></div>
+            <div className='h-72 bg-white w-72 shadow-xl'></div>
+            <div className='h-72 bg-white w-72 shadow-xl'></div>
+            <div className='h-72 bg-white w-72 shadow-xl'></div>
           </div>
         </div>
       </div>
-      
+      <footer className='p-12 w-full min-h-[30vh] mt-16 bg-blue-600 flex justify-center gap-x-32 text-white'>
+        <div className='flex justify-center items-center'>
+          <h1>Orta Mah. Üniversite Cad. Sabancı University</h1>
+        </div>
+        <div className='w-96 flex flex-col gap-y-4 justify-center items-center'>
+          <Image
+              src="/connlogo.png"
+              alt="logo"
+              width={128}
+              height={128}
+          />
+          <span className='text-center'>All rights are reserved.</span>
+        </div>
+        <div className='w-48'>
+          <ul className='h-full flex flex-col items-center justify-center gap-y-4'>
+            <span className='font-bold text-xl'>Links</span>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Services</li>
+          </ul>
+        </div>
+      </footer>
       
     </main>
   )
